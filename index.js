@@ -37,13 +37,13 @@ export default class Rate {
     const options = Rate.filterOptions(inputOptions)
     if (Platform.OS === 'ios') {
       options.AppleNativePrefix = AppleNativePrefix
-      RNRate.rate(options, (response) => {
-        callback(response) // error?
+      RNRate.rate(options, (response, error) => {
+        callback(response, error) // error?
       })
     } else if (Platform.OS === 'android') {
       if (options.preferredAndroidMarket === AndroidMarket.Google) {
         if (options.preferInApp) {
-          RNRate.rate(options, response=>{
+          RNRate.rate(options, (response, error) =>{
             if (!response) {
               if (options.openAppStoreIfInAppFails) {
                 Rate.openURL(GooglePrefix + options.GooglePackageName, callback)
@@ -51,7 +51,7 @@ export default class Rate {
                 callback(false)
               }
             } else {
-              callback(response)
+              callback(response, error)
             }
           })
         } else {
