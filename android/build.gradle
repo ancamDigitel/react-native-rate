@@ -10,10 +10,10 @@
 //   original location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
+def DEFAULT_COMPILE_SDK_VERSION = 29
+def DEFAULT_BUILD_TOOLS_VERSION = '29.0.2'
 def DEFAULT_MIN_SDK_VERSION = 16
-def DEFAULT_TARGET_SDK_VERSION = 28
+def DEFAULT_TARGET_SDK_VERSION = 29
 
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
@@ -72,5 +72,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'com.google.android.play:core:1.8.0'
+    implementation 'com.google.android.play:core:1.9.1'
 }
